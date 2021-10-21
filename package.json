@@ -1,0 +1,24 @@
+{
+  "name": "roux-sirene-invader",
+  "version": "1.0.0",
+  "description": "Index all SIRET number into NoSQL Database, fastest as possible",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blablarthur/roux-sirene-invader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blablarthur/roux-sirene-invader/issues"
+  },
+  "homepage": "https://github.com/blablarthur/roux-sirene-invader#readme",
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "typescript": "^4.4.4"
+  }
+}
