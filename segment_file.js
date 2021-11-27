@@ -17,7 +17,7 @@ export const segment_file = (filePath, chunkNumber) => {
     });
     let i = 0;
     rl.on('line', (input) => {
-        if (i - 1 >= CHUNK * (chunkNumber - 1)) {
+/*         if (i - 1 >= CHUNK * (chunkNumber - 1)) {
             writeStream.write(input + "\n");
             if (i >= CHUNK_LINE_READ * CHUNK_TO_READ_FOR_100M_FILE * chunkNumber) {
                 rl.removeAllListeners();
@@ -25,13 +25,15 @@ export const segment_file = (filePath, chunkNumber) => {
                 const millis = Date.now() - start;
                 console.log(`seconds elapsed = ${Math.round(millis / 1000)}`);
             }
-        }
+        } */
         i++;
     });
     rl.on('close', () => {
-        readableStream.destroy();
-        writeStream.end();
-    })
+        const millis = Date.now() - start;
+        console.log(`seconds elapsed = ${Math.round(millis / 1000)} for ${i} lines`);
+/*         readableStream.destroy();
+        writeStream.end(); */
+    });
 }
 
 const TEXT_INPUT_PATH = "/home/arthur/workspace/EPITA/roux-sirene-invader/tests/testFiles/test.txt";
@@ -41,4 +43,4 @@ const CHUNK_LINE_READ = 429;
 const CHUNK_TO_READ_FOR_100M_FILE = 1449;
 const CHUNK = CHUNK_LINE_READ * CHUNK_TO_READ_FOR_100M_FILE;
 
-segment_file(STOCK_ESTABLISHEMENT_PATH, 50);
+segment_file(STOCK_ESTABLISHEMENT_PATH, 20);
