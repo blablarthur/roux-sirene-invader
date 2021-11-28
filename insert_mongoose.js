@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import { SireneModel } from './mongooseModel.js';
 
-export const insertMongoose = (documents) => {
+export const insertMongoose = async (documents) => {
   const start = Date.now()
   mongoose.connect('mongodb://localhost:27017/', { dbName: "sireneDb" });
 

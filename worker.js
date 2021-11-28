@@ -1,24 +1,32 @@
 import * as fs from 'fs';
 import { csv_to_json_bulk } from './csv_to_json.js';
 
-export const job = (nbDirPath) => {
+export const job = async (nbDirPath) => {
     const dirPath = TEXT_OUTPUT_DIRPATH + nbDirPath + "/";
     console.log(dirPath);
     var job = [];
-
+    let active = false;
     fs.watch(dirPath, (evenType, fileName) => {
         if (evenType === 'rename') {
             //file created ==> csv to json + insert and delete file
             console.log(dirPath + fileName);
             job.push(dirPath + fileName);
+            active = true;
         }
     });
 
-    let isActive = false;
     while(1) {
-        if (!isActive) {
-            csv_to_json_bulk(job.shift());
-            isActive = true;
+        if (active && job.length === 0) {
+            return;
+        }
+        else if (active) {
+            try {
+                console.log(`got ${job.length} jobs to do`);
+                await csv_to_json_bulk(job.shift());
+                console.log('job done');
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
 
