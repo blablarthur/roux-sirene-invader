@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
@@ -15,4 +15,6 @@ dateDebut:                            String,
 etatAdministratifEtablisssement:      String
 });
 
-export const SireneModel = mongoose.model('sireneCollection', sireneSchema);
+const SireneModel = mongoose.model('sireneCollection', sireneSchema);
+
+module.exports = { SireneModel }

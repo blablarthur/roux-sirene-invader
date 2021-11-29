@@ -1,8 +1,8 @@
-import * as fs from 'fs';
-import { csv_to_json_bulk } from './csv_to_json.js';
-import { FILE_OUTPUT_DIRPATH } from './config.js';
+const fs = require('fs');
+const { FILE_OUTPUT_DIRPATH } = require('./config.js');
+const { csv_to_json_bulk } = require('./csv_to_json.js');
 
-export const job = async (nbDirPath) => {
+const job = async (nbDirPath) => {
     const dirPath = FILE_OUTPUT_DIRPATH + nbDirPath + "/";
     console.log(dirPath);
     var job = fs.readdirSync(dirPath);
@@ -25,7 +25,6 @@ export const job = async (nbDirPath) => {
             console.log(error);
         }
     }
-
 }
 
-job(1);
+job(process.argv[2]);

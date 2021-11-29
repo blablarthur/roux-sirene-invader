@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import { FILE_OUTPUT_DIRPATH, STOCK_ESTABLISHEMENT_PATH } from './config.js';
+const fs = require('fs');
+const { FILE_OUTPUT_DIRPATH, STOCK_ESTABLISHEMENT_PATH, WORKER_NB } = require('./config.js');
 
-export const segment_file = (filePath) => {
+const segment_file = (filePath) => {
     if (typeof filePath !== "string")
         throw 'filePath is not correct.';
     if (!fs.existsSync(filePath))
@@ -62,7 +62,6 @@ const initDirectories = () => {
 const FILENAME_OUTPUT = "testOutput";
 const EXTENSION = '.csv';
 const CHUNK = 10000000;
-const WORKER_NB = 2;
 const START_TO_SKIP_FIRST_LINE = 1305;
 
 segment_file(STOCK_ESTABLISHEMENT_PATH);

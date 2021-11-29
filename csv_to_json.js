@@ -1,6 +1,6 @@
-import * as fs from 'fs';
-import * as readline from 'readline';
-import { insertMongoose } from './insert_mongoose.js';
+const fs = require('fs');
+const readline = require('readline');
+const { insertMongoose } = require('./insert_mongoose.js');
 
 const csv_to_json = (csvData) => {
     var res = csvData.split(',');
@@ -22,7 +22,7 @@ const csv_to_json = (csvData) => {
     return json_from_csv;
 }
 
-export const csv_to_json_bulk = async (csvDataFilePath) => {
+const csv_to_json_bulk = async (csvDataFilePath) => {
     return new Promise((resolve, reject) => {
         const start = Date.now();
         if (!fs.existsSync(csvDataFilePath))
@@ -49,3 +49,5 @@ export const csv_to_json_bulk = async (csvDataFilePath) => {
         })
     })
 }
+
+module.exports = { csv_to_json_bulk };

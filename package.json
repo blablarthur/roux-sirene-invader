@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Index all SIRET number into NoSQL Database, fastest as possible",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "launch": "node --experimental-modules segment_file.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

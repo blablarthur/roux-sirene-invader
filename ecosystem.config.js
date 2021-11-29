@@ -7,6 +7,16 @@ module.exports = {
   {
    name: "worker",
    script: "./worker.js",
-   args: "1" 
-  }]
+   args: "0" 
+  },
+  {
+    name: "worker",
+    script: "./worker.js",
+    args: "1" 
+   },
+   {
+    name: "worker",
+    script: "./worker.js",
+    args: "2" 
+   }]
 }
