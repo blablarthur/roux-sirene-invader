@@ -1,10 +1,6 @@
 module.exports = {
   apps : [
   {
-    name   : "segment_file",
-    script : "./segment_file.js"
-  },
-  {
    name: "worker",
    script: "./worker.js",
    args: "0" 
@@ -18,5 +14,11 @@ module.exports = {
     name: "worker",
     script: "./worker.js",
     args: "2" 
-   }]
+   },
+   {
+    name: "worker",
+    script: "./worker.js",
+    args: "3" 
+   }
+  ]
 }

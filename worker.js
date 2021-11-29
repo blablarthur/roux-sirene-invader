@@ -13,14 +13,11 @@ const job = async (nbDirPath) => {
             if (job.length === 0)
                 return;
         }
-        
+
         try {
             absoluteFilePath = dirPath + job.shift();
             await csv_to_json_bulk(absoluteFilePath)
-            .then(() => {
-                fs.rmSync(absoluteFilePath);
-                console.log('job done');
-            })
+            fs.rmSync(absoluteFilePath);
         } catch (error) {
             console.log(error);
         }
