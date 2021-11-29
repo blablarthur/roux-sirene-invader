@@ -7,7 +7,7 @@
   "scripts": {
     "launch": "node --experimental-modules segment_file.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "clean": "find . -name \"testOutput[0-9]*.csv\" -delete"
+    "clean": "rm -r ./files"
   },
   "repository": {
     "type": "git",
