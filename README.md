@@ -9,4 +9,4 @@ To use my Sirene Invader, you will need to install npm in latest LTS version and
 
 ## Usage
 
-To use my segmentation file script, type **node segment_file.js**. This will segment the Stock Establishement file into smaller ones. If you have a strong machine, use **pm2 start ecosystem.config.js**. Once done, use **npm run clean** to clean up the project. You can also use db.collection.deleteMAny({}).
+To use my segmentation file script, type **node segment_file.js**. This will segment the Stock Establishement file into smaller ones. If you have a strong machine, use **pm2 start ecosystem.config.js**. Once done, use **npm run clean** to clean up the project. You can also use db.sirenecollections.deleteMAny({}).
